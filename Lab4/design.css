@@ -1,0 +1,145 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+ 
+}
+
+
+
+#content_container ul:first-of-type {
+    margin-top: 0;
+}
+
+
+
+#global_container {
+    width: 100%;
+}
+
+
+#top_bar {
+    background-color: green;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    overflow: hidden; 
+    border-top: 1px solid transparent;
+}
+
+#nav_container {
+    display: flex;
+    margin: 0 auto; 
+    transform: translateX(-50%); 
+    
+}
+
+#logo_div {
+    margin: 0;
+    line-height: 1;
+    background-color: yellow;
+    padding: 0 20px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#logo_div h1 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+
+
+
+.nav_item {
+    background-color: cyan;
+    border: 1px solid black;
+    padding: 10px 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+#content_container {
+    background-color: orange;
+    
+
+    width: 70vw;            
+    height: 50vw;             
+    margin-top: 0;           
+    display: flow-root;
+    
+    margin: 5vh auto;         
+    padding: 3vw;             
+    border: 2px solid black;
+    box-sizing: border-box;
+
+    font-size: 1vw;         
+    text-decoration: underline;
+    text-align: justify;
+    line-height: 1.6;
+
+    margin: 0 auto;  
+    
+    display: flow-root;
+    padding: 3vw;             
+    border: 2px solid black;
+    box-sizing: border-box;    
+    overflow-y: scroll;       
+}
+
+
+@media (max-width: 600px) {
+    #content_container {
+        width: 90vw;
+        height: 90vw;
+        font-size: 4vw;
+    }
+}
+
+#content_container ul {
+    margin-bottom: 20px;
+}
+.first_list {
+    font-weight: bold;
+
+    text-align: left; 
+    
+    
+    display: table; 
+    margin-left: auto; 
+    margin-right: 0;
+    
+
+    list-style-position: outside; 
+    padding-right: 20px; 
+}
+
+.first_list li {
+    margin-bottom: 10px;
+}
+.second_list {
+  
+    text-align: left;
+    list-style-position: inside;
+}
+
+
+#footer {
+    background-color: red;
+    text-align: center;
+    padding: 5px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 0.7rem;
+}
+
+
+#global_container {
+    padding-bottom: 30px; 
+}
