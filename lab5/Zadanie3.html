@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadanie 3</title>
+</head>
+<body>
+
+<script>
+
+function fibonacci(n) {
+    let tablica = [];
+
+    if (n >= 1) tablica.push(0);
+    if (n >= 2) tablica.push(1);
+
+    for (let i = 2; i < n; i++) {
+        tablica.push(tablica[i - 1] + tablica[i - 2]);
+    }
+
+    console.log(tablica);
+}
+
+fibonacci(10);
+</script>
+
+
+</body>
+</html>

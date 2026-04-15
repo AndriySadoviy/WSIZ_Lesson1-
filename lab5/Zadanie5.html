@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadanie 5</title>
+</head>
+<body>
+
+<script>
+
+function przyblizeniePI(n) {
+    let suma = 0;
+
+    for (let i = 0; i < n; i++) {
+        let mianownik = 2 * i + 1;
+
+        if (i % 2 === 0) {
+            suma += 1 / mianownik;
+        } else {
+            suma -= 1 / mianownik;
+        }
+    }
+
+    let wynik = 4 * suma;
+    console.log(wynik);
+}
+przyblizeniePI(1000);
+</script>
+
+
+</body>
+</html>

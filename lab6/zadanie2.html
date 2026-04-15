@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+#stoper { display: inline-block; }
+#reset { display: none; }
+
+button { margin: 5px; }
+</style>
+</head>
+<body>
+
+<h1 id="czas">
+  <span id="godziny">00</span>:
+  <span id="minuty">00</span>:
+  <span id="sekundy">00</span>
+</h1>
+
+<button id="start">START</button>
+<button id="zapisz">ZAPISZ</button>
+<button id="stop">STOP</button>
+<button id="reset">RESET</button>
+
+<p id="stan_stopera"></p>
+<ul id="zapisane_czasy"></ul>
+
+<script>
+let sek = 0;
+let min = 0;
+let godz = 0;
+let interval = null;
+
+const startBtn = document.getElementById("start");
+const stopBtn = document.getElementById("stop");
+const resetBtn = document.getElementById("reset");
+const zapiszBtn = document.getElementById("zapisz");
+
+const stan = document.getElementById("stan_stopera");
+const lista = document.getElementById("zapisane_czasy");
+
+
+function format(x) {
+  return x < 10 ? "0" + x : x;
+}
+
+
+function aktualizuj() {
+  sek++;
+  if (sek === 60) {
+    sek = 0;
+    min++;
+  }
+  if (min === 60) {
+    min = 0;
+    godz++;
+  }
+
+  document.getElementById("sekundy").textContent = format(sek);
+  document.getElementById("minuty").textContent = format(min);
+  document.getElementById("godziny").textContent = format(godz);
+}
+
+
+function stanStartowy() {
+  startBtn.style.display = "inline";
+  zapiszBtn.style.display = "inline";
+  stopBtn.style.display = "none";
+  resetBtn.style.display = "none";
+}
+
+function stanLiczenia() {
+  startBtn.style.display = "none";
+  zapiszBtn.style.display = "inline";
+  stopBtn.style.display = "inline";
+  resetBtn.style.display = "none";
+}
+
+function stanZatrzymany() {
+  startBtn.style.display = "inline";
+  zapiszBtn.style.display = "inline";
+  stopBtn.style.display = "none";
+  resetBtn.style.display = "inline";
+}
+
+
+startBtn.onclick = () => {
+  if (!interval) {
+    interval = setInterval(aktualizuj, 1000);
+    stan.textContent = "Trwa odliczanie...";
+    stanLiczenia();
+  }
+};
+
+stopBtn.onclick = () => {
+  clearInterval(interval);
+  interval = null;
+  stan.textContent = "Zatrzymano odliczanie.";
+  stanZatrzymany();
+};
+
+
+resetBtn.onclick = () => {
+  sek = 0;
+  min = 0;
+  godz = 0;
+  document.getElementById("sekundy").textContent = "00";
+  document.getElementById("minuty").textContent = "00";
+  document.getElementById("godziny").textContent = "00";
+  lista.innerHTML = "";
+  stan.textContent = "Wyzerowano.";
+  stanStartowy();
+};
+
+zapiszBtn.onclick = () => {
+  const li = document.createElement("li");
+  li.textContent = `${format(godz)}:${format(min)}:${format(sek)}`;
+  lista.appendChild(li);
+};
+
+
+stanStartowy();
+</script>
+
+</body>
+</html>
