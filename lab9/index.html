@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicker Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="game-container">
+        <h1>Super Clicker</h1>
+        
+        <div class="stats">
+            <p>Punkty: <span id="score">0</span></p>
+            <p>Punkty na sekundę (PPS): <span id="pps">0</span></p>
+            <p>Moc kliknięcia: <span id="click-power">1</span></p>
+        </div>
+
+        <button id="click-button">KLIKAJ!</button>
+
+        <div class="shop">
+            <h2>Ulepszenia</h2>
+            
+            <div class="upgrade-item">
+                <p>Większa Siła (Kliknięcie +1)</p>
+                <button id="buy-click-upgrade">Kup za <span id="click-cost">10</span> pkt</button>
+            </div>
+
+            <div class="upgrade-item">
+                <p>Automatyczny Klikacz (Pasywne +1/s)</p>
+                <button id="buy-passive-upgrade">Kup za <span id="passive-cost">50</span> pkt</button>
+            </div>
+        </div>
+
+        <button id="reset-button">Resetuj Grę</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
